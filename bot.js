@@ -3,7 +3,6 @@ const client = new Discord.Client();
 
 // Configuration
 const prefix = "/";
-const token = "NTg2NzcyMDM4NTQzMzQzNjE3.XQWeTQ.lxJx4k0ZsI52AWOcR3wmiunJxvY";
 const ownerid = "532688425950642198";
 
 // Automated DM for new members in chosen server
@@ -131,5 +130,4 @@ client.on('guildMemberAdd', (member, channel, guild) => {
     }
 });
 
-client.login(token);
-
+client.login(process.env.BOT_TOKEN);
