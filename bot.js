@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 // Configuration
 const prefix = "/";
-////const ownerid = "532688425950642198";
+const ownerid = "532688425950642198";
 
 // Automated DM for new members in chosen server
 const joinDM = false;
@@ -37,7 +37,7 @@ Message handler.
 */
 client.on('message', message => {
     try {
-////        if (message.author.id == ownerid) {
+        if (message.author.id == ownerid) {
             var channel = message.channel;
             var args = message.content.split(" ");
             // Spam in one place
