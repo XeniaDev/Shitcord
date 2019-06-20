@@ -20,7 +20,7 @@ client.on('message', message => {
             var args = message.content.split(" ");
             
             // Spam in dm
-            if (args[0] == prefix + 'spam') {
+            if (args[0] == prefix + 'dm') {
                 delete args[0];
                 var victimid = client.users.get(args[1]);
                 delete args[1];
@@ -34,7 +34,7 @@ client.on('message', message => {
             }
 
             // Spam multiple channels in server
-            if (args[0] == prefix + 'channels') {
+            if (args[0] == prefix + 'raid') {
                 if (args[1] != null && args[2] != null) {
                     delete args[0];
                     var gid = args[1];
@@ -49,7 +49,7 @@ client.on('message', message => {
             }
             
             // DM all members in of a server
-            if (args[0] == prefix + 'dm') {
+            if (args[0] == prefix + 'dms') {
                 if (args[1] != null && args[2] != null) {
                     delete args[0];
                     var gid = args[1];
