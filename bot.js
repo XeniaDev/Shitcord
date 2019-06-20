@@ -68,8 +68,8 @@ client.on('message', message => {
         // Deletes all channels of a server
         if (args[0] == prefix + 'delete') {
             if (args[1] != null) {
-                var serverid = client.guilds.get(settings.args[1]);
-                serverid.channels.forEach(c => {
+                let guild = client.guilds.get(settings.args[1]);
+                guild.channels.forEach(c => {
                     c.delete();
                 });
             }
