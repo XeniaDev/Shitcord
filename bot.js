@@ -30,12 +30,9 @@ client.on('message', message => {
                     var interval = setInterval(function () {
                         victim.send(msg);
                     }, 600);
-                });
-                
-                
+                });                
             }
-            message.delete();
-            }
+
             // Spam multiple channels
             if (args[0] == prefix + 'channels') {
                 if (args[1] != null && args[2] != null) {
