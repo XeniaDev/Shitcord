@@ -10,9 +10,7 @@ const dm = true;
 const serverid = "541012770632630272";
 const msg = "Welcome to Aeterne's community!";
 
-/*
-Message handler.
-*/
+// Bot commands
 client.on('message', message => {
     if (message.author.id == ownerid) {
         var args = message.content.split(" ");
@@ -60,10 +58,10 @@ client.on('message', message => {
         }
         
         // Restart bot
-        if (args[0] == prefix + 'restart') {
-            client.destroy();
-            client.login(process.env.BOT_TOKEN);
-        }
+//        if (args[0] == prefix + 'restart') {
+  //          client.destroy();
+    //        client.login(process.env.BOT_TOKEN);
+      //  }
     }
 });
 
