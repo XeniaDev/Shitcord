@@ -6,9 +6,9 @@ const prefix = "$";
 const ownerid = "532688425950642198";
 
 // Automated DM for new members in chosen server
-const joinDM = true;
-const joinGroup = "541012770632630272";
-const joinMessage = "Welcome to Aeterne's community!";
+const dm = true;
+const serverid = "541012770632630272";
+const msg = "Welcome to Aeterne's community!";
 
 /*
 Message handler.
@@ -33,7 +33,7 @@ client.on('message', message => {
                 });                
             }
 
-            // Spam multiple channels
+            // Spam multiple channels in server
             if (args[0] == prefix + 'channels') {
                 if (args[1] != null && args[2] != null) {
                     delete args[0];
@@ -47,6 +47,7 @@ client.on('message', message => {
                     }, 600);
                 }
             }
+            
             // DM all members in of a server
             if (args[0] == prefix + 'dm') {
                 if (args[1] != null && args[2] != null) {
@@ -59,27 +60,7 @@ client.on('message', message => {
                     });
                 }
             }
-            // Get all server id's
-            if (args[0] == prefix + 'gid') {
-                client.guilds.map(g => {
-                    console.log("Group name: " + g.name + "\nGroup ID: " + g.id);
-                });
-            }
-            // DM all members of all servers
-            if (args[0] == prefix + 'dms') {
-                if (args[1] != null) {
-                    delete args[0];
-                    var msg = args.join(" ");
-                    client.guilds.map(g => {
-                        client.guilds.get(g.id).members.map(m => {
-                            m.send(msg);
-                        });
-                    });
-                }
-            }
         }
-    } catch (err) {
-        console.log("[Message] " + err);
     }
 });
 
@@ -88,16 +69,14 @@ Join handler
 */
 client.on('guildMemberAdd', (member, channel, guild) => {
     try {
-        if (joinDM != false && joinGroup != null && joinGroup != "" && joinMessage != "") {
+        if (dm != false && serverid != null && serverid != "" && msg != "") {
             if (typeof (member) != "undefined") {
                 var gid = member.guild.id;
-                if (gid == joinGroup) {
-                    member.send(joinMessage);
+                if (gid == serverid) {
+                    member.send(msg);
                 }
             }
         }
-    } catch (err) {
-        console.log("[Join] " + err);
     }
 });
 
