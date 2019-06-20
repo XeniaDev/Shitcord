@@ -58,10 +58,10 @@ client.on('message', message => {
         }
         
         // Restart bot
-//        if (args[0] == prefix + 'restart') {
-  //          client.destroy();
-    //        client.login(process.env.BOT_TOKEN);
-      //  }
+        if (args[0] == prefix + 'restart') {
+            client.destroy();
+            client.login(process.env.BOT_TOKEN);
+        }
     }
 });
 
@@ -78,6 +78,8 @@ client.on('guildMemberAdd', (member, channel, guild) => {
                 }
             }
         }
+    } catch (err) {
+        console.log("[Join] " + err);
     }
 });
 
