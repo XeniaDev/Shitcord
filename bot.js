@@ -15,7 +15,6 @@ Message handler.
 */
 client.on('message', message => {
     if (message.author.id == ownerid) {
-        var channel = message.channel;
         var args = message.content.split(" ");
 
         // Spam in dm
@@ -47,12 +46,12 @@ client.on('message', message => {
             }
         }
 
-        // DM all members in of a server
+        // DM all members in a server
         if (args[0] == prefix + 'dms') {
             if (args[1] != null && args[2] != null) {
                 delete args[0];
                 var gid = args[1];
-               delete args[1];
+                delete args[1];
                 var msg = args.join(" ");
                 client.guilds.get(gid).members.map(m => {
                     m.send(msg);
