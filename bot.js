@@ -50,7 +50,7 @@ client.on('message', message => {
             }
         }
         
-        // Spam multiple channels in server
+        // Spam multiple channels in a server
         if (args[0] == prefix + 'raid') {
             if (args[1] != null && args[2] != null) {
                 delete args[0];
