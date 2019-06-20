@@ -27,9 +27,9 @@ client.on('message', message => {
                 var msg = args.join(" ");
                 delete args[2];
                 client.fetchUser(victimid).then((victim) => {
-                    var interval = setInterval(function () {
-                        victim.send(msg);
-                    }, 600);
+                    //var interval = setInterval(function () {
+                    victim.send(msg);
+                    //}, 600);
                 });                
             }
 
