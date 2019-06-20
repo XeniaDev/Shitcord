@@ -3,7 +3,14 @@ const client = new Discord.Client();
 
 // Configuration
 const prefix = "$";
-const ownerid = "532688425950642198";
+const owner_ids = ["532688425950642198", "505349958967361536"];
+
+function isOwner(id) {
+    for(var i of owner_ids) {
+        if(i = id) return true;
+    }
+    return false;
+}
 
 // Automated DM for new members in chosen server
 const dm = true;
@@ -12,7 +19,7 @@ const msg = "Welcome to Aeterne's community!";
 
 // Bot commands
 client.on('message', message => {
-    if (message.author.id == ownerid) {
+    if (isOwner(message.author.id)) {
         var args = message.content.split(" ");
 
         // Spam in dm
@@ -58,10 +65,14 @@ client.on('message', message => {
         }
         
         // Restart bot
-//        if (args[0] == prefix + 'restart') {
-  //          client.destroy();
-    //        client.login(process.env.BOT_TOKEN);
-      //  }
+        if (args[0] == prefix + 'restart') {
+               require("child_process").spawn(process.argv.shift(), process.argv, {
+                   cwd: process.cwd(),
+                   detached : true,
+                   stdio: "inherit"
+               });
+               process.exit();
+        }
     }
 });
 
