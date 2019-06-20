@@ -2,35 +2,13 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 // Configuration
-const prefix = "/";
+const prefix = "$";
 const ownerid = "532688425950642198";
 
 // Automated DM for new members in chosen server
-const joinDM = false;
+const joinDM = true;
 const joinGroup = "253908290105376768";
-const joinMessage = "Welcome";
-
-/*
-Ready handler.
-*/
-client.on('ready', () => {
-    try {
-        console.log("Node.js version: " + process.version + "\nDiscord.js version: " + Discord.version);
-    } catch (error) {
-        console.log("[Ready] " + error);
-    }
-});
-
-/*
-Error handler.
-*/
-client.on('error', () => {
-    try {
-        console.log("ERROR: " + error);
-    } catch (err) {
-        console.log("[Error] " + err);
-    }
-});
+const joinMessage = "Welcome to the Unicode Academy!";
 
 /*
 Message handler.
