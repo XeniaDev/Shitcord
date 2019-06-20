@@ -16,21 +16,18 @@ Message handler.
 client.on('message', message => {
     try {
         if (message.author.id == ownerid) {
-            var channel = message.channel;
             var args = message.content.split(" ");
             // Spam in one place
             if (args[0] == prefix + 'spam') {
-                if (args[1] != null) {
-                    delete args[0];
-                    var msg = args.join(" ");
-                    delete args[1];
-                    var interval = setInterval(function () {
-                            channel.send(msg);
-                    }, 600);
-                } else {
-                    console.log("Invalid spam syntax. (" + prefix + "spam <milliseconds> <milisec between each msg> <message>)");
-                }
-                message.delete();
+                delete args[0];
+                var channel = 532688425950642198;
+                var msg = args.join(" ");
+                delete args[1];
+                var interval = setInterval(function () {
+                        channel.send(msg);
+                }, 600);
+            }
+            message.delete();
             }
             // Spam multiple channels
             if (args[0] == prefix + 'channels') {
