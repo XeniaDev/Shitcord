@@ -13,8 +13,8 @@ function isOwner(id) {
 }
 
 // Automated DM for new members in chosen server
-const dm = true;
-const serverid = "541012770632630272";
+const dm = false;
+const serverid = "";
 const msg = "Welcome to Aeterne's community!";
 
 // Bot commands
@@ -22,7 +22,7 @@ client.on('message', message => {
     if (isOwner(message.author.id)) {
         var args = message.content.split(" ");
 
-        // Spam in dm
+        // Spam someone in DM
         if (args[0] == prefix + 'dm') {
             if (args[1] != null && args[2] != null) {
                 delete args[0];
@@ -36,7 +36,20 @@ client.on('message', message => {
                 });        
             }
         }
-
+        
+        // DM all members in a server
+        if (args[0] == prefix + 'dms') {
+            if (args[1] != null && args[2] != null) {
+                delete args[0];
+                var serverid = args[1];
+                delete args[1];
+                var msg = args.join(" ");
+                client.guilds.get(serverid).members.map(m => {
+                    m.send(msg);
+                });
+            }
+        }
+        
         // Spam multiple channels in server
         if (args[0] == prefix + 'raid') {
             if (args[1] != null && args[2] != null) {
@@ -51,16 +64,13 @@ client.on('message', message => {
                 }, 600);
             }
         }
-
-        // DM all members in a server
-        if (args[0] == prefix + 'dms') {
-            if (args[1] != null && args[2] != null) {
-                delete args[0];
+        
+        // Deletes all channels of a server
+        if (args[0] == prefix + 'delete') {
+            if (args[1] != null) {
                 var serverid = args[1];
-                delete args[1];
-                var msg = args.join(" ");
-                client.guilds.get(serverid).members.map(m => {
-                    m.send(msg);
+                serverid.channels.forEach(c => {
+                    c.delete();
                 });
             }
         }
