@@ -29,7 +29,6 @@ client.on('message', message => {
                 var victimid = client.users.get(args[1]);
                 delete args[1];
                 var msg = args.join(" ");
-                delete args[2];
                 client.fetchUser(victimid).then((victim) => {
                     var interval = setInterval(function () {
                         victim.send(msg);
@@ -85,8 +84,8 @@ client.on('guildMemberAdd', (member, channel, guild) => {
     try {
         if (dm != false && serverid != null && serverid != "" && msg != "") {
             if (typeof (member) != "undefined") {
-                var joinedID = member.guild.id;
-                if (joinedID == serverid) {
+                var gid = member.guild.id;
+                if (gid == serverid) {
                     member.send(msg);
                 }
             }
