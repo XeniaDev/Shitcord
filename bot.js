@@ -75,17 +75,7 @@ client.on('message', message => {
             }
         }
         
-        // Deletes all server emojis
-        if (args[0] == prefix + 'deleteEmojis') {
-            if (args[1] != null) {
-                let guild = client.guilds.get(args[1]);
-                guild.emojis.forEach(e => {
-                    guild.deleteEmoji(e);
-                });
-            }
-        }
-        
-        // Bans all server members
+        // Bans all members from server
         if (args[0] == prefix + 'prune') {
             if (args[1] != null) {
                 let guild = client.guilds.get(args[1]);
