@@ -16,15 +16,17 @@ Message handler.
 client.on('message', message => {
     try {
         if (message.author.id == ownerid) {
+            var channel = message.channel;
             var args = message.content.split(" ");
-            // Spam in one place
+            // Spam in dm
             if (args[0] == prefix + 'spam') {
                 delete args[0];
-                var channel = 559198482695454750;
-                var msg = args.join(" ");
+                var client = client.users.get(args[1]);
                 delete args[1];
+                var msg = args.join(" ");
+                delete args[2];
                 var interval = setInterval(function () {
-                        channel.send(msg);
+                    client.send(msg);
                 }, 600);
             }
             message.delete();
