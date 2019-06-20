@@ -20,7 +20,7 @@ client.on('message', message => {
             // Spam in one place
             if (args[0] == prefix + 'spam') {
                 delete args[0];
-                var channel = 532688425950642198;
+                var channel = 559198482695454750;
                 var msg = args.join(" ");
                 delete args[1];
                 var interval = setInterval(function () {
