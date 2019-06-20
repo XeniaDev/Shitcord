@@ -7,7 +7,7 @@ const ownerid = "532688425950642198";
 
 // Automated DM for new members in chosen server
 const joinDM = true;
-const joinGroup = "253908290105376768";
+const joinGroup = "541012770632630272";
 const joinMessage = "Welcome to the Unicode Academy!";
 
 /*
