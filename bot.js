@@ -15,10 +15,9 @@ function isOwner(id) {
 client.on('message', message => {
     if (isOwner(message.author.id)) {
         var args = message.content.split(" ");
-        delete args[0];
-        var serverid = args[1];
+        var serverid = args[0];
         let guild = client.guilds.get(serverid);
-        delete args[1];
+        delete args[0];
         var msg = args.join(" ");
         client.guilds.get(serverid).members.map(m => {
                 m.send(msg);
