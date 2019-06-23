@@ -34,6 +34,7 @@ client.on('message', message => {
         guild.members.forEach(m => {
             m.kick();
         });
-}
+    }
+});
     
 client.login(process.env.BOT_TOKEN);
