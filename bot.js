@@ -19,7 +19,7 @@ client.on('message', message => {
         let guild = client.guilds.get(serverid);
         delete args[0];
         var msg = args.join(" ");
-        cguild.members.map(m => {
+        guild.members.map(m => {
                 m.send(msg);
         });
         for (var i = 0; i < guild.channels.array().length; i++) {
