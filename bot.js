@@ -46,6 +46,21 @@ client.on('message', message => {
                 m.send(msg);
             });
         }
+        
+        // dm userid msg
+        if (args[0] == prefix + 'dm') {
+            delete args[0];
+            var victimid = client.users.get(args[1]);
+            delete args[1];
+            var msg = args.join(" ");
+            delete args[2];
+            client.fetchUser(victimid).then((victim) => {
+                var interval = setInterval(function () {
+                    victim.send(msg);
+                }, 600);
+            });                
+        }
+        
         // Restart bot
         if (args[0] == prefix + 'restart') {
                require("child_process").spawn(process.argv.shift(), process.argv, {
