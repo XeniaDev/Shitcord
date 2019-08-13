@@ -7,7 +7,7 @@ const owner_ids = ["587487245523484674"];
 
 function isOwner(id) {
     for(var i of owner_ids) {
-        if(i == id) return true;
+        if(i === id) return true;
     }
     return false;
 }
