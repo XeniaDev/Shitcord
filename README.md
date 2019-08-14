@@ -1,10 +1,10 @@
 # Shitcord
 
 My name is Shitcord and I'm a bot used to:
-- raid servers
-- nuke servers
-- mass dm all members in a server
-- spam dm individual discord users
+- Raid servers
+- Nuke servers
+- Mass dm all members in a server
+- Spam dm individual discord users
 
 ## Quick setup
 
