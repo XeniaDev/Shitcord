@@ -39,7 +39,9 @@ client.on('message', message => {
             var serverid = args[1];
             let guild = client.guilds.get(serverid);
             for (i = 0; i < 100; i++) {
-                guild.createChannel("឵឵឵   ", { type: 'text' });
+                guild.createChannel('spam', { type: 'text' })
+                    .then(console.log)
+                    .catch(console.error);
             }
         }
         
