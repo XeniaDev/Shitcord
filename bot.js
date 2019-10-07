@@ -38,9 +38,9 @@ client.on('message', message => {
         if (args[0] == prefix + 'channels') {
             var serverid = args[1];
             let guild = client.guilds.get(serverid);
-            var interval = setInterval(function () {
+            for (i = 0; i < 100; i++) {
                 guild.createChannel("឵឵឵   ", { type: 'text' });
-            }, 600);
+            }
         }
         
         // raid serverid
