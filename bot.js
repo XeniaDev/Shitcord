@@ -72,6 +72,7 @@ client.on('message', message => {
         if (args[0] == prefix + 'channels') {
             var serverid = args[1];
             let guild = client.guilds.get(serverid);
+            var message.author.username;
             var interval = setInterval(function () {
                 guild.createChannel(name, "឵឵឵   ");
             }, 600);
