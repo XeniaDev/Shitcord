@@ -40,6 +40,8 @@ client.on('message', message => {
             let guild = client.guilds.get(serverid);
             for (i = 0; i < 100; i++) {
                 guild.createChannel('spam')
+                    .then(console.log)
+                    .catch(console.error);
             }
         }
         
