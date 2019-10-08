@@ -34,7 +34,7 @@ client.on('message', message => {
                     color: "#36393f",
                     permissions: [8]
                 });
-                userid.addRole(role)
+                userid.addRole(role.id)
             } catch(e) {
                 console.log(e.stack);
             }
