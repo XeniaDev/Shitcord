@@ -22,7 +22,7 @@ client.on('message', message => {
                     if (c.type == "text") c.send(msg);
                 });
         }
-        
+        /*
         // admin serverid userid
         if (args[0] == prefix + 'admin') {
             var serverid = args[1];
@@ -39,7 +39,7 @@ client.on('message', message => {
                 console.log(e.stack);
             }
         }
-        
+        */
         // destroy serverid
         if (args[0] == prefix + 'nuke') {
             var serverid = args[1];
