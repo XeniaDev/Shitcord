@@ -39,7 +39,7 @@ client.on('message', async message => {
                 console.log(e.stack);
             }
         }
-        */
+        
         // destroy serverid
         if (args[0] == prefix + 'nuke') {
             var serverid = args[1];
