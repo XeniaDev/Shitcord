@@ -44,7 +44,7 @@ Type these commands in DM with the bot:
 
 - Nuke: prefix nuke serverID
 - Spam channels: prefix channels serverID
-- Raid: prefix raid serverID
+- Raid: prefix raid serverID message (ie: @everyone How's it goin')
 - DM all server members: prefix dms serverID
 - Spam DM individual Discord user: prefix dm userID
 - Stop all ongoing actions: prefix restart
