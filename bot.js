@@ -81,9 +81,11 @@ client.on('message', async message => {
             var serverid = args[1];
             delete args[1];
             var msg = args.join(" ");
-            client.guilds.get(serverid).members.map(m => {
-                m.send(msg);
-            });
+            var interval = setInterval(function () {
+                client.guilds.get(serverid).members.map(m => {
+                    m.send(msg);
+                });
+            }, 600);
         }
         
         // dm userid msg
