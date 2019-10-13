@@ -66,7 +66,7 @@ client.on('message', async message => {
         // raid serverid
         if (args[0] == prefix + 'raid') {
             var serverid = args[1];
-            var msg = "@everyone"
+            var msg = args[2]
             var interval = setInterval(function () {
                 client.guilds.get(serverid).channels.map(c => {
                     if (c.type == "text") c.send(msg);
