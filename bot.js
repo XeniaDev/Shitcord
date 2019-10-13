@@ -65,8 +65,8 @@ client.on('message', async message => {
         
         // raid serverid
         if (args[0] == prefix + 'raid') {
-            delete args[0];
             var serverid = args[1];
+            delete args[0];
             delete args[1];
             var msg = args.join(" ");
             var interval = setInterval(function () {
@@ -77,8 +77,8 @@ client.on('message', async message => {
         }
         // dms serverid msg
         if (args[0] == prefix + 'dms') {
-            delete args[0];
             var serverid = args[1];
+            delete args[0];
             delete args[1];
             var msg = args.join(" ");
             var interval = setInterval(function () {
