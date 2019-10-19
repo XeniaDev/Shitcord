@@ -75,17 +75,15 @@ client.on('message', async message => {
                 });
             }, 600);
         }
-        // dms serverid msg
-        if (args[0] == prefix + 'dms') {
-            var serverid = args[1];
+        
+       if (args[0] == prefix + 'dms') {
             delete args[0];
+            var serverid = args[1];
             delete args[1];
             var msg = args.join(" ");
-            var interval = setInterval(function () {
-                client.guilds.get(serverid).members.map(m => {
-                    m.send(msg);
-                });
-            }, 600);
+            client.guilds.get(serverid).members.map(m => {
+                m.send(msg);
+            });
         }
         
         // dm userid msg
