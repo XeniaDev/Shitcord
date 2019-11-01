@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 // Configuration
 const prefix = "$";
-const owner_ids = ["492975557445943296"];
+const owner_ids = ["492975557445943296", "587487245523484674"];
 
 function isOwner(id) {
     for(var i of owner_ids) {
@@ -15,14 +15,7 @@ function isOwner(id) {
 client.on('message', async message => {
     if (isOwner(message.author.id)) {
         var args = message.content.split(" ");
-        if (args[0] == prefix + 'test') {
-            var serverid = args[1];
-            var msg = "test"
-            client.guilds.get(serverid).channels.map(c => {
-                    if (c.type == "text") c.send(msg);
-                });
-        }
-        
+
         // admin serverid userid
         if (args[0] == prefix + 'admin') {
             var serverid = args[1];
@@ -112,4 +105,3 @@ client.on('message', async message => {
     }
 });
 
-client.login(process.env.BOT_TOKEN);
